@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.module.category" id="module_ferry_management_system">
+        <field name="name">Ferry Management</field>
+        <field name="description">Category for Ferry Management</field>
+        <field name="sequence">15</field>
+    </record>
+    <record id="ferry_management_admin_group" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="module_ferry_management_system"/>
+    </record>
+</odoo>

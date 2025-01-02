@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kis_ferry,internal.kis.ferry,model_kis_ferry,base.group_user,1,1,1,1
+access_kis_ferry_management,internal.kis.ferry.management,model_kis_ferry_management,base.group_user,1,1,1,1
+access_kis_ferry_management_line,internal.kis.ferry.management.line,model_kis_ferry_management_line,base.group_user,1,1,1,1

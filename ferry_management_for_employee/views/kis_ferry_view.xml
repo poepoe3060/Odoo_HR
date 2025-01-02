@@ -1,0 +1,58 @@
+<odoo>
+    <!-- form view -->
+    <record id="view_kis_ferry_form" model="ir.ui.view">
+        <field name="name">kis.ferry.form</field>
+        <field name="model">kis.ferry</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Ferry">
+                <sheet>
+                    <group class="oe_inline">
+                        <group name="ferry_info">
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="car_number"/>
+                            <field name="address"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view -->
+    <record id="tree_kis_ferry_form" model="ir.ui.view">
+        <field name="name">kis.ferry.tree</field>
+        <field name="model">kis.ferry</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="car_number"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- search view -->
+    <record id="kis_ferry_view_search" model="ir.ui.view">
+        <field name="name">kis.ferry.view.search</field>
+        <field name="model">kis.ferry</field>
+        <field name="arch" type="xml">
+            <search string="Ferry">
+                <field name="name"/>
+                <field name="car_number"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- action -->
+    <record id="action_kis_ferry_info" model="ir.actions.act_window">
+        <field name="name">Ferry</field>
+        <field name="res_model">kis.ferry</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="kis_ferry_view_search"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- menu -->
+    <menuitem id="menu_root" name="Ferry Management"  web_icon="ferry_management,static/image/ferry_icon.png" sequence="1" groups="ferry_management.ferry_management_admin_group"/>
+    <menuitem id="ferry_menu_root" parent="menu_root" name="Ferry" sequence="1" groups="ferry_management.ferry_management_admin_group">
+        <menuitem id="kis_ferry_management_menu" name="Management" action="action_kis_ferry_management" sequence="1" />
+        <menuitem id="menu_kis_ferry" name="Ferry" action="action_kis_ferry_info" sequence="2" />
+    </menuitem>
+</odoo>

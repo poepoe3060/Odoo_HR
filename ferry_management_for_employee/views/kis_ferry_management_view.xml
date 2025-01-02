@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- form view -->
+    <record id="view_kis_ferry_management_form" model="ir.ui.view">
+        <field name="name">kis.ferry.management.form</field>
+        <field name="model">kis.ferry.management</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Management">
+                <header>
+                    <button string="Confirm" name="action_confirm" type="object" class="oe_highlight" attrs="{'invisible':[('state','in',('done','cancel'))]}"/>
+                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" attrs="{'invisible':[('state','=','cancel')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="done,cancel"/>
+                </header>
+                <sheet>
+                    <group class="oe_inline">
+                        <group>
+                            <field name="ferry_id"/>
+                            <field name="phone"/>
+                            <field name="car_number"/>
+                        </group>
+                    </group>
+                    <notebook>
+                            <page string="Ferry Management Lines" name="ferry_management_line">
+                                <field  name="ferry_management_line">
+                                    <tree  editable="bottom">
+                                        <field name="employee_id" />
+                                        <field name="employee_id_code" readonly="1" force_save="1"/>
+                                        <field name="employee_email" />
+                                        <field name="employee_phone" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                    <field name="activity_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view -->
+    <record id="tree_kis_ferry_management_form" model="ir.ui.view">
+        <field name="name">kis.ferry.tree</field>
+        <field name="model">kis.ferry.management</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ferry_id"/>
+                <field name="phone"/>
+                <field name="car_number"/>
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- search view -->
+    <record id="kis_ferry_management_view_search" model="ir.ui.view">
+        <field name="name">kis.ferry.management.view.search</field>
+        <field name="model">kis.ferry.management</field>
+        <field name="arch" type="xml">
+            <search string="Management">
+                <field name="ferry_id"/>
+                <field name="car_number"/>
+            </search>
+        </field>
+    </record>
+    <!-- action -->
+    <record id="action_kis_ferry_management" model="ir.actions.act_window">
+        <field name="name">Ferry Management</field>
+        <field name="res_model">kis.ferry.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="kis_ferry_management_view_search"/>
+    </record>
+</odoo>
