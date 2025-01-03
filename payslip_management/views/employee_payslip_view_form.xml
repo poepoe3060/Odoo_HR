@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--        form view, no need for first       -->
+<!--        <record id="view_employee_payslip_form" model="ir.ui.view">-->
+<!--            <field name="name">employee.payslip.form</field>-->
+<!--            <field name="model">employee.payslip</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Pay Slip">-->
+<!--                    <sheet>-->
+<!--                        <group col="2">-->
+<!--                            <group>-->
+<!--                                <field name="staff_id"/>-->
+<!--                                <field name="job_id"/>-->
+<!--                                <field name="start_date"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="name"/>-->
+<!--                                <field name="department_id"/>-->
+<!--                                <field name="service_year"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        tree view       -->
+        <record id="view_employee_payslip_tree" model="ir.ui.view">
+            <field name="name">employee.payslip.tree</field>
+            <field name="model">employee.payslip</field>
+            <field name="arch" type="xml">
+                <tree string="Pay Slip" editable="bottom">
+                    <field name="name"/>
+                    <field name="staff_id"/>
+                    <field name="job_id"/>
+                    <field name="start_date"/>
+                    <field name="department_id"/>
+                    <field name="service_year"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        View action for branch views        -->
+        <record id="action_employee_payslip" model="ir.actions.act_window">
+            <field name="name">Campus</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.payslip</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+<!--        Menu item       -->
+        <menuitem id="payslip_root" name="Pay Slip" sequence="90"  web_icon="payslip_management,static/description/icon_payroll.png"/>
+        <menuitem action="action_employee_payslip" name="Pay Slip" id="menu_action_employee_payslip" parent="payslip_root" sequence="1"/>
+    </data>
+</odoo>
